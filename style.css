@@ -1,0 +1,857 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif; /* Improved font pairing */
+}
+
+
+
+/* Responsive Typography */
+html {
+    font-size: 16px; /* Base font size */
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px; /* Adjust for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 13px; /* Smaller font for small mobile devices */
+    }
+}
+
+.wrapper{
+    display: flex;
+    position: sticky;
+}
+.menu-btn {
+    display:none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #1a2238;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 5px;
+}
+/* Sidebar Styling */
+.wrapper .sidebar {
+    
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #1a2238;
+    padding: 30px 0;
+    color: white;
+   
+    
+}
+
+
+/* Sidebar Heading */
+.wrapper .sidebar h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Sidebar Menu */
+.wrapper .sidebar ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    text-align: center(225, 225, 225, 0.05);
+}
+
+/* Sidebar Links */
+.wrapper .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Sidebar Icons */
+.wrapper .sidebar ul li a .fas {
+    width: 25px;
+    margin-right: 10px;
+}
+
+/* Hover Effects */
+.wrapper .sidebar ul li:hover {
+    background-color:#bdb8d7;
+}
+.wrapper .sidebar ul li:hover a {
+    color:black
+}
+
+/* Social Media Icons */
+.wrapper .sidebar .social_media {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.wrapper .sidebar .social_media a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #59594f8d;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 5px;
+    color: #bdb8d7;
+    border-radius: 5px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* 📱 Tablets & Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .wrapper .sidebar {
+        width: 180px;
+        padding: 20px 0;
+          
+            height: auto;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+    }
+    .wrapper .sidebar ul li {
+        padding: 12px;
+    }
+    .wrapper .sidebar ul li a {
+        font-size: 14px;
+    }
+    .menu-btn {
+        display: none; 
+       
+   }
+
+   .wrapper.sidebar.show {
+       transform: translateX(0);
+   }
+
+
+
+/* 📱 Mobile Devices (Hide Sidebar Initially) */
+@media screen and (max-width: 768px) {
+    .wrapper .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        text-align: center;
+    }
+    
+ 
+    
+    .wrapper .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    
+    .wrapper .sidebar ul li {
+        border: #1a2238;
+        flex: 1;
+    }
+    
+    .wrapper .sidebar ul li a {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .wrapper .sidebar .social_media {
+        display: inline; /* Hide social media icons on mobile */
+    }
+     .menu-btn {
+         display: block; 
+        
+    }
+
+    .show {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+/* Main Content Styling */
+.wrapper .main_content {
+    width: calc(100%  -200px); /* Adjust for sidebar */
+    margin-left:100px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Header Styling */
+.wrapper .main_content .header {
+    padding: 20px;
+    background: #1a2238;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Responsive Static Background Image */
+.static-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Cover full viewport */
+    z-index: -1;
+}
+
+.static-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image scales properly */
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* 📱 Tablets & Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .wrapper .main_content {
+        width: calc(100% - 180px); /* Adjust for sidebar */
+        margin-left: 180px;
+    }
+    
+    .wrapper .main_content .header {
+        font-size: 18px;
+    }
+}
+
+/* 📱 Mobile Devices (Hide Sidebar) */
+@media screen and (max-width: 768px) {
+    .wrapper .main_content {
+        width: 100%;
+        margin-left: 0; /* No sidebar margin */
+    }
+    
+    .wrapper .main_content .header {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    /* Static Image Optimization */
+    .static-image {
+        height: auto;
+        position: relative;
+    }
+
+    .static-image img {
+        height: auto;
+    }
+}
+
+/* 📱 Small Phones */
+@media screen and (max-width: 480px) {
+    .wrapper .main_content .header {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .static-image img {
+        height: auto;
+    }
+    .wrapper .main_content{
+        align-self: center;
+
+    }
+}
+
+  
+/* services */
+/* services */
+#services{
+    padding:20px 0;
+    margin-left: 50px;
+}
+/* Footer */
+footer {
+    background:#1a2238 ;
+    color: white;
+ text-align: center;
+    padding: 10px;
+    width:100%;
+    position: relative; 
+    margin-left:0px;
+
+
+}
+.container{
+    width:100%;
+    text-align: center;
+
+}
+
+ul{
+    list-style: none;
+} 
+.footer {
+    background-color: #1a2238;
+    color: white;
+    padding: 20px ;
+    position:relative;
+    width: calc(100%  -200px); /* Adjust for sidebar */
+    
+    transition: margin-left 0.3s ease-in-out;
+    text-align: center;
+    
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width:1000px;
+    margin: auto;
+    padding: 20px;
+    flex-wrap: wrap;
+    width: calc(100%  200px); /* Adjust for sidebar */
+   
+    transition: margin-left 0.3s ease-in-out;
+    text-align: center;
+}
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    min-width: 200px;
+}
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+.social-icons {
+    display: contents;
+    gap: 15px;
+}
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+/* services section */
+/* Service Box Styling */
+.service-box {
+    font-size: 16px; 
+    padding: 20px;
+    background-color: #1c2331;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px; /* Prevents it from getting too large */
+    margin: 20px auto; /* Centers on all screens */
+    text-align: center;
+}
+
+/* Service Box Headings */
+.service-box h2 {
+    font-size: 22px; 
+    font-weight: bold;
+}
+
+.service-box p {
+    font-size: 14px; 
+}
+
+/* Services List Grid */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Individual Service Items */
+.services-list div {
+    background: #1a2238;
+    padding: 30px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+    text-align: center;
+}
+
+/* Icons inside Services */
+.services-list div i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Service Item Headings */
+.services-list div h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* Hover Effects */
+.services-list div:hover {
+    background-color: rgb(15, 174, 237);
+    transform: translateY(-5px);
+}
+
+/* Service Item Text */
+.services-list div p {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* Service Item Button */
+.services-list div button {
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #007FB3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Button Hover */
+.services-list div button:hover {
+    background: #005F87;
+}
+
+/* Section Header */
+.services .container h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+    .service-box {
+        font-size: 14px;
+        max-width: 500px;
+    }
+    .services-list div {
+        padding: 25px;
+    }
+    .services-list div h2 {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .service-box {
+      display: inline;
+    }
+    .services-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 15px;
+    }
+    .services-list div {
+        padding: 20px;
+    }
+    .services-list div h2 {
+        font-size: 18px;
+    }
+    .services-list div i {
+        font-size: 35px;
+    }
+}
+
+/* Small Phones */
+@media screen and (max-width: 480px) {
+    .service-box {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .services-list {
+        grid-template-columns: 1fr; /* Stacks items */
+        gap: 10px;
+    }
+    .services-list div {
+        padding: 15px;
+    }
+    .services-list div h2 {
+        font-size: 16px;
+    }
+    .services-list div i {
+        font-size: 30px;
+    }
+}
+
+ /* About us*/
+ .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;  /* Allow elements to wrap on smaller screens */
+    gap: 30px;
+    background-color: lightcyan;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1200px; /* Restrict maximum width */
+}
+
+/* Image Container */
+.about-image {
+    flex: 1; 
+    min-width: 300px;  /* Ensure it doesn't shrink too much */
+    max-width: 500px;  /* Prevent it from getting too large */
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Content */
+.about-text {
+    flex: 1;
+    min-width: 300px; /* Ensure text doesn't shrink too much */
+    max-width: 650px;
+    text-align: center;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {  /* Tablets */
+    .about-section {
+        padding: 40px;
+    }
+    .about-text h2 {
+        font-size: 26px;
+    }
+    .about-text p {
+        font-size: 15px;
+    }
+    .about-text {
+         text-align: left; 
+        }
+}
+
+@media screen and (max-width: 768px) {  /* Mobile devices */
+    .about-section {
+        flex-direction: column;  /* Stack elements */
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+    .about-image,
+    .about-text {
+        max-width: 100%;
+        min-width: auto;
+    }
+    .about-text h2 {
+        font-size: 24px;
+    }
+    .about-text p {
+        font-size: 14px;
+    }
+    .about-text {
+        text-align: center; 
+       }
+}
+
+@media screen and (max-width: 480px) {  /* Small phones */
+    .about-section {
+        padding: 20px;
+    }
+    .about-text h2 {
+        font-size: 22px;
+    }
+    .about-text p {
+        font-size: 13px;
+    }
+}
+
+
+@media(max-width: 767px){
+    .about-section{
+      width: 100%;
+   
+  }
+  }
+  @media(max-width: 574px){
+    .about-image{
+      width: 100%;
+  }
+  }
+
+
+ 
+/* Footer */
+.container{
+    max-width: 1170px;
+    margin:auto;
+    margin-bottom: 0px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: relative;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
+ 
+
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif; /* Modern and readable font */
+}
+
+body {
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contact Form Container */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left and Right Sections */
+.contact-left, .contact-right {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: whitesmoke;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Form Button */
+.contact-form button {
+    background: #00A9E0;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+  
+}
+
+.contact-form button:hover {
+    background: #007FB3;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .contact-left, .contact-right {
+        flex: 1 1 100%;
+        padding: 15px;
+    }
+
+    .contact-form {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 10px;
+        background-color: #00A9E0;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+}
+
+h2
+{
+    text-align: center;
+    color: #fff;
+}
